@@ -13,14 +13,13 @@ int main() {
 	
 	RationalNumber ra_nb = RationalNumber(254523LL, 21330LL);
 	cout << ra_nb << endl;
-	ra_nb = RationalNumber(-23LL, 56LL);
-	cout << ra_nb << endl;
-	ra_nb = RationalNumber(451LL);
-	cout << ra_nb << endl;
 	ra_nb = RationalNumber(-851LL);
+	ra_nb = RationalNumber(451LL);
+	ra_nb = RationalNumber(-6LL, 4LL);
+	const RationalNumber another_ra_nb = RationalNumber(6LL, 4LL);
 	cout << ra_nb << endl;
-
-	ra_nb += another_one;
+	cout << ra_nb << endl;
+	cout << ra_nb << endl;
 
 	assert(one < two);
 	assert(two > one);
@@ -37,6 +36,15 @@ int main() {
 	another_one--; // now equals 1
 	assert(another_one == one);
 	cout << another_one << endl;
+
+	cout << ra_nb << endl;
+	cout << ra_nb.floor() << endl;
+	cout << ra_nb.ceil() << endl;
+	cout << ra_nb.frac_part() << endl;
+	cout << another_ra_nb << endl;
+	cout << another_ra_nb.floor() << endl;
+	cout << another_ra_nb.ceil() << endl;
+	cout << another_ra_nb.frac_part() << endl;
 
 	cin >> another_one;
 	cout << another_one << endl;

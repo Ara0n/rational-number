@@ -24,6 +24,11 @@ public:
 
 	long double float_repr();
 
+	// ex1-7 rounding stuff
+	long long floor() const;
+	long long ceil() const;
+	RationalNumber frac_part() const;
+
 	// stream operators
 	friend std::ostream& operator << (std::ostream&, const RationalNumber&);
 	friend std::istream& operator >> (std::istream&, RationalNumber&);

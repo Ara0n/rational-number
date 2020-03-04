@@ -123,8 +123,37 @@ void RationalNumber::cptool(const RationalNumber& rational_nb) const{
 
 long double RationalNumber::float_repr() {
 	long double numerator = static_cast<long double>(m_numerator);
-	long double denominator = static_cast<long double>(m_denominator);
 	return (numerator/m_denominator) * (m_negative ? -1 : 1);
+}
+
+
+// ex1-7 rounding stuff
+
+long long RationalNumber::floor() const{
+	if (m_denominator == 1) {
+		return m_numerator * (m_negative ? -1 : 1);
+	} else if (m_negative) {
+		return -(m_numerator/m_denominator) - 1;
+	} else {
+		return m_numerator/m_denominator;
+	}
+}
+
+long long RationalNumber::ceil() const{
+	if (m_denominator == 1) {
+		return m_numerator * (m_negative ? -1 : 1);
+	} else if (m_negative) {
+		return -(m_numerator/m_denominator);
+	} else {
+		return m_numerator/m_denominator + 1;
+	}
+}
+
+// using the definition from: Graham, Ronald L.; Knuth, Donald E.; Patashnik, Oren (1992), Concrete mathematics: a foundation for computer science, Addison-Wesley, p. 70, ISBN 0-201-14236-8
+RationalNumber RationalNumber::frac_part() const {
+	int sign = (m_negative ? -1 : 1);
+	long long numerator = sign * m_numerator % m_denominator;
+	return RationalNumber(numerator, static_cast<long long>(m_denominator));
 }
 
 
