@@ -6,6 +6,15 @@
 #include "RationalNumber.h"
 
 
+// counter stuff
+
+int RationalNumber::count = 0;
+
+int RationalNumber::get_count() {
+	return RationalNumber::count;
+}
+
+
 // used to simplify the fractions after operations or initialization
 
 void RationalNumber::simplify() {
@@ -19,12 +28,14 @@ RationalNumber::RationalNumber() {
 	m_negative = false;
 	m_numerator = 0;
 	m_denominator = 1;
+	count++;
 }
 
 RationalNumber::RationalNumber(long long numerator) {
 	m_negative = numerator < 0;
 	m_numerator = (numerator < 0) ? -numerator : numerator;
 	m_denominator = 1;
+	count++;
 }
 
 RationalNumber::RationalNumber(long double numerator) {
@@ -40,6 +51,7 @@ RationalNumber::RationalNumber(long double numerator) {
 	m_numerator = static_cast<unsigned long long>(numerator);
 
 	simplify();
+	count++;
 }
 
 RationalNumber::RationalNumber(long long numerator, long long denominator) {
@@ -48,6 +60,7 @@ RationalNumber::RationalNumber(long long numerator, long long denominator) {
 	m_denominator = denominator < 0 ? -denominator : denominator;
 
 	simplify();
+	count++;
 }
 
 RationalNumber::RationalNumber(long double numerator, long long denominator) {
@@ -63,6 +76,7 @@ RationalNumber::RationalNumber(long double numerator, long long denominator) {
 	m_numerator = static_cast<unsigned long long>(numerator);
 
 	simplify();
+	count++;
 }
 
 RationalNumber::RationalNumber(long long numerator, long double denominator) {
@@ -78,6 +92,7 @@ RationalNumber::RationalNumber(long long numerator, long double denominator) {
 	m_denominator = static_cast<unsigned long long>(denominator);
 
 	simplify();
+	count++;
 }
 
 RationalNumber::RationalNumber(long double numerator, long double denominator) {
@@ -94,9 +109,12 @@ RationalNumber::RationalNumber(long double numerator, long double denominator) {
 	m_denominator = static_cast<unsigned long long>(denominator);
 
 	simplify();
+	count++;
 }
 
-RationalNumber::~RationalNumber() {}
+RationalNumber::~RationalNumber() {
+	count--;
+}
 
 
 // "debug" tools for me

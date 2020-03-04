@@ -10,6 +10,7 @@ int main() {
 	const RationalNumber one = RationalNumber(1LL);
 	const RationalNumber two = RationalNumber(2LL);
 	RationalNumber another_one = RationalNumber(1LL);
+	cout << RationalNumber::get_count() << endl;
 	
 	RationalNumber ra_nb = RationalNumber(254523LL, 21330LL);
 	cout << ra_nb << endl;
@@ -20,6 +21,7 @@ int main() {
 	cout << ra_nb << endl;
 	cout << ra_nb << endl;
 	cout << ra_nb << endl;
+	cout << RationalNumber::get_count() << endl;
 
 	assert(one < two);
 	assert(two > one);
@@ -46,11 +48,13 @@ int main() {
 	cout << another_ra_nb.ceil() << endl;
 	cout << another_ra_nb.frac_part() << endl;
 
-	cout << "mediant: " << mediant(ra_nb, two) << endl;
+	cout << "mediant: " << mediant(another_ra_nb, two) << endl;
 
 	cin >> another_one;
 	cout << another_one << endl;
 	cout << setprecision(20) << another_one.float_repr() << endl;
+
+	cout << RationalNumber::get_count() << endl;
 
 	return EXIT_SUCCESS;
 }

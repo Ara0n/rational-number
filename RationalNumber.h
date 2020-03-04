@@ -4,11 +4,13 @@
 class RationalNumber
 {
 private:
+	static int count;
 	bool m_negative;
 	unsigned long long m_numerator;
 	unsigned long long m_denominator;
 	void simplify();
 public:
+	static int get_count();
 	RationalNumber();
 	RationalNumber(long long);
 	RationalNumber(long double);
