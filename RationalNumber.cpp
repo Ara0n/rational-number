@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cmath>
 #include <numeric>
+#include <stdexcept>
 #include "RationalNumber.h"
 
 
@@ -154,6 +155,17 @@ RationalNumber RationalNumber::frac_part() const {
 	int sign = (m_negative ? -1 : 1);
 	long long numerator = sign * m_numerator % m_denominator;
 	return RationalNumber(numerator, static_cast<long long>(m_denominator));
+}
+
+
+// ex1-8 median
+RationalNumber mediant(const RationalNumber& rational_nb1, const RationalNumber& rational_nb2) {
+	if (!(rational_nb1.m_negative || rational_nb2.m_negative)) {
+		long long numerator = rational_nb1.m_numerator + rational_nb1.m_denominator;
+		long long denominator = rational_nb2.m_numerator + rational_nb2.m_denominator;
+		return RationalNumber(numerator, denominator);
+	}
+	throw std::out_of_range("can't be used with negative rational numbers");
 }
 
 

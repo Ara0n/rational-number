@@ -29,6 +29,9 @@ public:
 	long long ceil() const;
 	RationalNumber frac_part() const;
 
+	// ex1-8 median
+	friend RationalNumber mediant(const RationalNumber&, const RationalNumber&);
+
 	// stream operators
 	friend std::ostream& operator << (std::ostream&, const RationalNumber&);
 	friend std::istream& operator >> (std::istream&, RationalNumber&);

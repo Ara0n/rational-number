@@ -46,6 +46,8 @@ int main() {
 	cout << another_ra_nb.ceil() << endl;
 	cout << another_ra_nb.frac_part() << endl;
 
+	cout << "mediant: " << mediant(ra_nb, two) << endl;
+
 	cin >> another_one;
 	cout << another_one << endl;
 	cout << setprecision(20) << another_one.float_repr() << endl;
