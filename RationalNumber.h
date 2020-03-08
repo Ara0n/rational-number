@@ -8,6 +8,7 @@ private:
 	bool m_negative;
 	unsigned long long m_numerator;
 	unsigned long long m_denominator;
+
 	void simplify();
 public:
 	static int get_count();
@@ -33,6 +34,12 @@ public:
 
 	// ex1-8 median
 	friend RationalNumber mediant(const RationalNumber&, const RationalNumber&);
+
+	// ex1-10 root calculation
+	int sqrt();
+	bool is_rootable() const;
+	friend bool is_nb_rootable(const unsigned long long);
+	friend RationalNumber other_sqrt(const RationalNumber&);	// wont modify the one it is called with and returns a new one if possible otherwise throw an error
 
 	// stream operators
 	friend std::ostream& operator << (std::ostream&, const RationalNumber&);

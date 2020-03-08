@@ -48,6 +48,19 @@ int main() {
 	cout << another_ra_nb.ceil() << endl;
 	cout << another_ra_nb.frac_part() << endl;
 
+	RationalNumber root_test = RationalNumber(9LL);
+	root_test.sqrt();
+	cout << root_test << endl;
+	root_test = RationalNumber(-4LL);
+	root_test.sqrt();
+	cout << root_test << endl;
+	root_test = RationalNumber(-4LL, -9LL);
+	root_test.sqrt();
+	cout << root_test << endl;
+	root_test = RationalNumber(12.5L, 2LL);
+	root_test.sqrt();
+	cout << root_test << endl;
+
 	cout << "mediant: " << mediant(another_ra_nb, two) << endl;
 
 	cin >> another_one;

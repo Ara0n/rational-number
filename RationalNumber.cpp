@@ -177,6 +177,7 @@ RationalNumber RationalNumber::frac_part() const {
 
 
 // ex1-8 median
+
 RationalNumber mediant(const RationalNumber& rational_nb1, const RationalNumber& rational_nb2) {
 	if (!(rational_nb1.m_negative || rational_nb2.m_negative)) {
 		long long numerator = rational_nb1.m_numerator + rational_nb1.m_denominator;
@@ -198,6 +199,33 @@ RationalNumber& RationalNumber::operator=(const RationalNumber& rational_nb) {
 	m_numerator = rational_nb.m_numerator;
 	m_denominator = rational_nb.m_denominator;
 	return *this;
+}
+
+// ex 1-10 root calculation
+bool is_nb_rootable(const unsigned long long nb) {
+	return std::sqrt(nb) == std::sqrt(static_cast<long double>(nb));
+}
+
+bool RationalNumber::is_rootable() const{
+	return is_nb_rootable(m_numerator) && is_nb_rootable(m_denominator) && !m_negative;
+}
+
+int RationalNumber::sqrt() {
+	if (is_rootable()) {
+		m_numerator = std::sqrt(m_numerator);
+		m_denominator = std::sqrt(m_denominator);
+		return 0;
+	}
+	return -1;
+}
+
+RationalNumber other_sqrt(const RationalNumber& rational_nb) {
+	if (rational_nb.is_rootable()) {
+		long long numerator = std::sqrt(static_cast<long long>(rational_nb.m_numerator));
+		long long denominator = std::sqrt(static_cast<long long>(rational_nb.m_denominator));
+		return RationalNumber(numerator, denominator);
+	}
+	throw std::out_of_range("no longer a rational number");
 }
 
 
