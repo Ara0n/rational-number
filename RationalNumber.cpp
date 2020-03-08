@@ -140,7 +140,7 @@ void RationalNumber::cptool(const RationalNumber& rational_nb) const{
 }
 
 
-long double RationalNumber::float_repr() {
+long double RationalNumber::float_repr() const{
 	long double numerator = static_cast<long double>(m_numerator);
 	return (numerator/m_denominator) * (m_negative ? -1 : 1);
 }
@@ -168,7 +168,7 @@ long long RationalNumber::ceil() const{
 	}
 }
 
-// using the definition from: Graham, Ronald L.; Knuth, Donald E.; Patashnik, Oren (1992), Concrete mathematics: a foundation for computer science, Addison-Wesley, p. 70, ISBN 0-201-14236-8
+// using the definition from: Graham, Ronald L.; Knuth, Donald E.; Patashnik, Oren (1992), Concrete mathematics: a foundation for computer science, Addison-Wesley, p. 70, ISBN 0-2, const 8
 RationalNumber RationalNumber::frac_part() const {
 	int sign = (m_negative ? -1 : 1);
 	long long numerator = sign * m_numerator % m_denominator;
@@ -226,6 +226,33 @@ RationalNumber other_sqrt(const RationalNumber& rational_nb) {
 		return RationalNumber(numerator, denominator);
 	}
 	throw std::out_of_range("no longer a rational number");
+}
+
+// ex 1-11 quadratic equation solver
+void quadratic(const RationalNumber& a, const RationalNumber& b, const RationalNumber& c) {
+	RationalNumber delta = b*b - RationalNumber(4LL)*a*c;
+	if (delta == RationalNumber(0LL)) {
+		std::cout << "this equation has one double real root: " << (RationalNumber(-1LL) * b) / (RationalNumber(2LL) * a) << std::endl;
+	} else if (!delta.m_negative) {
+		std::cout << "this equation has 2 real roots:" << std::endl;
+		if (delta.is_rootable()) {
+			std::cout << "\t--> x1 = " << (RationalNumber(-1LL) * b + other_sqrt(delta)) / (RationalNumber(2LL) * a) << " or x1 ≃ " << ((RationalNumber(-1LL) * b + other_sqrt(delta)) / (RationalNumber(2LL) * a)).float_repr() << std::endl;
+			std::cout << "\t--> x2 = " << (RationalNumber(-1LL) * b - other_sqrt(delta)) / (RationalNumber(2LL) * a) << " or x2 ≃ " << ((RationalNumber(-1LL) * b - other_sqrt(delta)) / (RationalNumber(2LL) * a)).float_repr() << std::endl;
+		} else {
+			std::cout << "\t--> x1 ≃ " << (-1 * b.float_repr() + std::sqrt(delta.float_repr())) / (2 * a.float_repr()) << std::endl;
+			std::cout << "\t--> x2 ≃ " << (-1 * b.float_repr() - std::sqrt(delta.float_repr())) / (2 * a.float_repr()) << std::endl;
+		}
+	} else {
+		std::cout << "this equation has 2 complex roots:" << std::endl;
+		delta *= RationalNumber(-1LL);
+		if (delta.is_rootable()) {
+			std::cout << "\t--> x1 = " << (RationalNumber(-1LL) * b) / (RationalNumber(2LL) * a) << " + " << other_sqrt(delta) / (RationalNumber(2LL) * a)  << "i or x1 ≃ " << ((RationalNumber(-1LL) * b) / (RationalNumber(2LL) * a)).float_repr() << " + " << (other_sqrt(delta) / (RationalNumber(2LL) * a)).float_repr() << "i" << std::endl;
+			std::cout << "\t--> x2 = " << (RationalNumber(-1LL) * b) / (RationalNumber(2LL) * a) << " - " << other_sqrt(delta) / (RationalNumber(2LL) * a)  << "i or x2 ≃ " << ((RationalNumber(-1LL) * b) / (RationalNumber(2LL) * a)).float_repr() << " - " << (other_sqrt(delta) / (RationalNumber(2LL) * a)).float_repr() << "i" << std::endl;
+		} else {
+			std::cout << "\t--> x1 ≃ " << (-1 * b.float_repr()) / (2 * a.float_repr()) << " + " << std::sqrt(delta.float_repr()) / (2 * a.float_repr()) << "i" << std::endl;
+			std::cout << "\t--> x2 ≃ " << (-1 * b.float_repr()) / (2 * a.float_repr()) << " - " << std::sqrt(delta.float_repr()) / (2 * a.float_repr()) << "i" << std::endl;
+		}
+	}
 }
 
 

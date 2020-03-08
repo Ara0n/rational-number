@@ -61,6 +61,17 @@ int main() {
 	root_test.sqrt();
 	cout << root_test << endl;
 
+	cout << "quadratic: x² + 2x + 1" << endl;
+	quadratic(RationalNumber(1LL), RationalNumber(2LL), RationalNumber(1LL));
+	cout << "quadratic: x² + 5x + 4" << endl;
+	quadratic(RationalNumber(1LL), RationalNumber(5LL), RationalNumber(4LL));
+	cout << "quadratic: x² - x - 1" << endl;
+	quadratic(RationalNumber(1LL), RationalNumber(-1LL), RationalNumber(-1LL));
+	cout << "quadratic: x² + 9" << endl;
+	quadratic(RationalNumber(1LL), RationalNumber(0LL), RationalNumber(9LL));
+	cout << "quadratic: x² + x + 1" << endl;
+	quadratic(RationalNumber(1LL), RationalNumber(1LL), RationalNumber(1LL));
+
 	cout << "mediant: " << mediant(another_ra_nb, two) << endl;
 
 	cin >> another_one;

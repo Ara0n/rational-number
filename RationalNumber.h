@@ -25,7 +25,7 @@ public:
 	void info(bool) const;
 	void cptool(const RationalNumber&) const;
 
-	long double float_repr();
+	long double float_repr() const;
 
 	// ex1-7 rounding stuff
 	long long floor() const;
@@ -40,6 +40,9 @@ public:
 	bool is_rootable() const;
 	friend bool is_nb_rootable(const unsigned long long);
 	friend RationalNumber other_sqrt(const RationalNumber&);	// wont modify the one it is called with and returns a new one if possible otherwise throw an error
+
+	// ex 1-11 quadratic equation solver
+	friend void quadratic(const RationalNumber&, const RationalNumber&, const RationalNumber&);
 
 	// stream operators
 	friend std::ostream& operator << (std::ostream&, const RationalNumber&);
