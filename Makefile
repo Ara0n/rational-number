@@ -10,7 +10,7 @@ main.o: main.cpp RationalNumber.h
 	g++ -Wall -pedantic --std=c++17 -c main.cpp
 
 clean:
-	rm *.o *~
+	rm *.o
 
 run: tp3
 	./tp3
