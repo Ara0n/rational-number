@@ -201,6 +201,14 @@ RationalNumber& RationalNumber::operator=(const RationalNumber& rational_nb) {
 	return *this;
 }
 
+RationalNumber& RationalNumber::operator=(const long long nb) {
+	return *this = RationalNumber(nb);
+}
+
+RationalNumber& RationalNumber::operator=(const long double nb) {
+	return *this = RationalNumber(nb);
+}
+
 // ex 1-10 root calculation
 bool is_nb_rootable(const unsigned long long nb) {
 	return std::sqrt(nb) == std::sqrt(static_cast<long double>(nb));
@@ -285,6 +293,40 @@ RationalNumber RationalNumber::operator/(const RationalNumber& rational_nb) cons
 	return RationalNumber(sign * static_cast<long long>(m_numerator * rational_nb.m_denominator), static_cast<long long>(m_denominator * rational_nb.m_numerator));
 }
 
+// with long long
+RationalNumber RationalNumber::operator+(const long long nb) const{
+	return *this + RationalNumber(nb);
+}
+
+RationalNumber RationalNumber::operator-(const long long nb) const{
+	return *this - RationalNumber(nb);
+}
+
+RationalNumber RationalNumber::operator*(const long long nb) const{
+	return *this * RationalNumber(nb);
+}
+
+RationalNumber RationalNumber::operator/(const long long nb) const{
+	return *this / RationalNumber(nb);
+}
+
+// with long double
+RationalNumber RationalNumber::operator+(const long double nb) const{
+	return *this + RationalNumber(nb);
+}
+
+RationalNumber RationalNumber::operator-(const long double nb) const{
+	return *this - RationalNumber(nb);
+}
+
+RationalNumber RationalNumber::operator*(const long double nb) const{
+	return *this * RationalNumber(nb);
+}
+
+RationalNumber RationalNumber::operator/(const long double nb) const{
+	return *this / RationalNumber(nb);
+}
+
 
 // increment and decrement operators
 
@@ -339,6 +381,48 @@ RationalNumber RationalNumber::operator/=(const RationalNumber & rational_nb) {
 	return *this;
 }
 
+//with long long
+RationalNumber RationalNumber::operator+=(const long long nb) {
+	*this += RationalNumber(nb);
+	return *this;
+}
+
+RationalNumber RationalNumber::operator-=(const long long nb) {
+	*this -= RationalNumber(nb);
+	return *this;
+}
+
+RationalNumber RationalNumber::operator*=(const long long nb) {
+	*this *= RationalNumber(nb);
+	return *this;
+}
+
+RationalNumber RationalNumber::operator/=(const long long nb) {
+	*this /= RationalNumber(nb);
+	return *this;
+}
+
+//with long double
+RationalNumber RationalNumber::operator+=(const long double nb) {
+	*this += RationalNumber(nb);
+	return *this;
+}
+
+RationalNumber RationalNumber::operator-=(const long double nb) {
+	*this -= RationalNumber(nb);
+	return *this;
+}
+
+RationalNumber RationalNumber::operator*=(const long double nb) {
+	*this *= RationalNumber(nb);
+	return *this;
+}
+
+RationalNumber RationalNumber::operator/=(const long double nb) {
+	*this /= RationalNumber(nb);
+	return *this;
+}
+
 
 // logical comparison
 
@@ -372,6 +456,56 @@ bool RationalNumber::operator==(const RationalNumber& rational_nb) const{
 
 bool RationalNumber::operator!=(const RationalNumber & rational_nb) const{
 	return !(*this == rational_nb);
+}
+
+// with long long
+bool RationalNumber::operator<(const long long nb) const{
+	return *this < RationalNumber(nb);
+}
+
+bool RationalNumber::operator>(const long long nb) const{
+	return *this > RationalNumber(nb);
+}
+
+bool RationalNumber::operator<=(const long long nb) const{
+	return *this <= RationalNumber(nb);
+}
+
+bool RationalNumber::operator>=(const long long nb) const{
+	return *this >= RationalNumber(nb);
+}
+
+bool RationalNumber::operator==(const long long nb) const{
+	return *this == RationalNumber(nb);
+}
+
+bool RationalNumber::operator!=(const long long nb) const{
+	return *this != RationalNumber(nb);
+}
+
+// with long double
+bool RationalNumber::operator<(const long double nb) const{
+	return *this < RationalNumber(nb);
+}
+
+bool RationalNumber::operator>(const long double nb) const{
+	return *this > RationalNumber(nb);
+}
+
+bool RationalNumber::operator<=(const long double nb) const{
+	return *this <= RationalNumber(nb);
+}
+
+bool RationalNumber::operator>=(const long double nb) const{
+	return *this >= RationalNumber(nb);
+}
+
+bool RationalNumber::operator==(const long double nb) const{
+	return *this == RationalNumber(nb);
+}
+
+bool RationalNumber::operator!=(const long double nb) const{
+	return *this != RationalNumber(nb);
 }
 
 

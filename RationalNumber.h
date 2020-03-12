@@ -55,6 +55,18 @@ public:
 	RationalNumber operator * (const RationalNumber&) const;
 	RationalNumber operator / (const RationalNumber&) const;
 
+	RationalNumber& operator = (const long long);
+	RationalNumber operator + (const long long) const;
+	RationalNumber operator - (const long long) const;
+	RationalNumber operator * (const long long) const;
+	RationalNumber operator / (const long long) const;
+
+	RationalNumber& operator = (const long double);
+	RationalNumber operator + (const long double) const;
+	RationalNumber operator - (const long double) const;
+	RationalNumber operator * (const long double) const;
+	RationalNumber operator / (const long double) const;
+
 	// increment and decrement operators
 	RationalNumber operator ++ ();
 	RationalNumber operator ++ (int);
@@ -67,6 +79,16 @@ public:
 	RationalNumber operator *= (const RationalNumber&);
 	RationalNumber operator /= (const RationalNumber&);
 
+	RationalNumber operator += (const long long);
+	RationalNumber operator -= (const long long);
+	RationalNumber operator *= (const long long);
+	RationalNumber operator /= (const long long);
+
+	RationalNumber operator += (const long double);
+	RationalNumber operator -= (const long double);
+	RationalNumber operator *= (const long double);
+	RationalNumber operator /= (const long double);
+
 
 	// logical comparison
 	bool operator < (const RationalNumber&) const;
@@ -75,6 +97,20 @@ public:
 	bool operator >= (const RationalNumber&) const;
 	bool operator == (const RationalNumber&) const;
 	bool operator != (const RationalNumber&) const;
+
+	bool operator < (const long long) const;
+	bool operator > (const long long) const;
+	bool operator <= (const long long) const;
+	bool operator >= (const long long) const;
+	bool operator == (const long long) const;
+	bool operator != (const long long) const;
+
+	bool operator < (const long double) const;
+	bool operator > (const long double) const;
+	bool operator <= (const long double) const;
+	bool operator >= (const long double) const;
+	bool operator == (const long double) const;
+	bool operator != (const long double) const;
 };
 
 #endif
