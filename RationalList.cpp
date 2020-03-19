@@ -61,3 +61,20 @@ RationalNumber RationalList::pop() {
 		return ra_nb;
 	}
 }
+
+
+bool RationalList::operator==(const RationalList& ra_list) const{
+	if (m_current_size == ra_list.m_current_size) {
+		for (int i = 0; i < m_current_size; ++i) {
+			if (m_array[i] != ra_list.m_array[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+bool RationalList::operator!=(const RationalList& ra_list) const{
+	return !(*this == ra_list);
+}

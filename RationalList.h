@@ -20,6 +20,9 @@ public:
 	void resize(const int);
 	void push(const RationalNumber);
 	RationalNumber pop();
+
+	bool operator == (const RationalList&) const;
+	bool operator != (const RationalList&) const;
 };
 
 #endif
