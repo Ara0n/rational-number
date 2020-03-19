@@ -2,16 +2,16 @@
 #include "RationalNumber.h"
 #include <iostream>
 
-RationalList::RationalList() {
-	m_max_size = 1;
-	m_current_size = 0;
-	RationalNumber *m_array = new RationalNumber[1];
-}
+	RationalList::RationalList() {
+		m_max_size = 1;
+		m_current_size = 0;
+		m_array = new RationalNumber[1];
+	}
 
 RationalList::RationalList(const int size) {
 	m_max_size = size;
 	m_current_size = 0;
-	RationalNumber *m_array = new RationalNumber[size];
+	m_array = new RationalNumber[size];
 }
 
 RationalList::RationalList(const RationalList& ra_list) {
@@ -37,6 +37,7 @@ void RationalList::resize(const int new_size) {
 
 	delete [] m_array;
 	m_array = new_array;
+	m_max_size = new_size;
 }
 
 
@@ -57,7 +58,6 @@ RationalNumber RationalList::pop() {
 	} else {
 		m_current_size--;
 		RationalNumber ra_nb = m_array[m_current_size];
-		delete &m_array[m_current_size];
 		return ra_nb;
 	}
 }
