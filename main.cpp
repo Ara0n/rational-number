@@ -76,16 +76,32 @@ int main() {
 	cout << "mediant: " << mediant(another_ra_nb, two) << endl;
 
 
-
+	cout << "test 1" << endl;
 	RationalList test = RationalList();
 	test.size();
+	test.push(one);
+	test.push(one);
+	test.size();
+	cout << test.pop() << endl;
+	test.size();
 
+	cout << "test 2" << endl;
 	const RationalList test2 = RationalList(5);
 	test2.size();
 
+	cout << "test 3" << endl;
 	RationalList test3 = RationalList(test2);
 	test3.size();
+	test3.push(another_one);
+	test3.size();
 
+	assert(test == test3);
+	assert(test != test2);
+
+	test.pop();
+
+	assert(test != test3);
+	assert(test == test2);
 
 
 	// cin >> another_one;
