@@ -23,6 +23,9 @@ public:
 
 	bool operator == (const RationalList&) const;
 	bool operator != (const RationalList&) const;
+
+	RationalNumber& operator [] (const int);
+	const RationalNumber& operator [] (const int) const;
 };
 
 #endif

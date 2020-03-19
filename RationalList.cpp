@@ -78,3 +78,18 @@ bool RationalList::operator==(const RationalList& ra_list) const{
 bool RationalList::operator!=(const RationalList& ra_list) const{
 	return !(*this == ra_list);
 }
+
+
+RationalNumber& RationalList::operator[](const int index) {
+	if (index < m_current_size) {
+	return m_array[index];
+	}
+	throw std::out_of_range("out of range");
+}
+
+const RationalNumber& RationalList::operator[](const int index) const{
+	if (index < m_current_size) {
+	return m_array[index];
+	}
+	throw std::out_of_range("out of range");
+}

@@ -98,13 +98,17 @@ int main() {
 	assert(test == test3);
 	assert(test != test2);
 
+	cout << test[0] << endl;
+	test[0] = two;
+	cout << test[0] << endl;
+
 	test.pop();
 
 	assert(test != test3);
 	assert(test == test2);
 
 
-	// cin >> another_one;
+	cin >> another_one;
 	cout << another_one << endl;
 	cout << setprecision(20) << another_one.float_repr() << endl;
 
