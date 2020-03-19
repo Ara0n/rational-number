@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <assert.h>
 #include "RationalNumber.h"
+#include "RationalList.h"
 
 using namespace std;
 
@@ -74,7 +75,20 @@ int main() {
 
 	cout << "mediant: " << mediant(another_ra_nb, two) << endl;
 
-	cin >> another_one;
+
+
+	RationalList test = RationalList();
+	test.size();
+
+	const RationalList test2 = RationalList(5);
+	test2.size();
+
+	RationalList test3 = RationalList(test2);
+	test3.size();
+
+
+
+	// cin >> another_one;
 	cout << another_one << endl;
 	cout << setprecision(20) << another_one.float_repr() << endl;
 
