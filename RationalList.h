@@ -19,6 +19,7 @@ public:
 	void size() const;
 	void resize(const int);
 	void push(const RationalNumber);
+	RationalNumber pop();
 };
 
 #endif

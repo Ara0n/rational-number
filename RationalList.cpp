@@ -49,3 +49,15 @@ void RationalList::push(const RationalNumber ra_nb) {
 		push(ra_nb);
 	}
 }
+
+
+RationalNumber RationalList::pop() {
+	if (m_current_size == 0) {
+		throw std::out_of_range("the RationalList is empty");
+	} else {
+		m_current_size--;
+		RationalNumber ra_nb = m_array[m_current_size];
+		delete &m_array[m_current_size];
+		return ra_nb;
+	}
+}
