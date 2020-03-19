@@ -8,7 +8,7 @@ RationalList::RationalList() {
 	RationalNumber *m_array = new RationalNumber[1];
 }
 
-RationalList::RationalList(int size) {
+RationalList::RationalList(const int size) {
 	m_max_size = size;
 	m_current_size = 0;
 	RationalNumber *m_array = new RationalNumber[size];
@@ -29,7 +29,7 @@ void RationalList::size() const{
 	std::cout << "max size: " << m_max_size << std::endl;
 }
 
-void RationalList::resize(int new_size) {
+void RationalList::resize(const int new_size) {
 	RationalNumber *new_array = new RationalNumber[new_size];
 	for (int i = 0; i < m_current_size; ++i) {
 		new_array[i] = m_array[i];
@@ -37,4 +37,15 @@ void RationalList::resize(int new_size) {
 
 	delete [] m_array;
 	m_array = new_array;
+}
+
+
+void RationalList::push(const RationalNumber ra_nb) {
+	if (m_current_size < m_max_size) {
+		m_array[m_current_size] = ra_nb;
+		m_current_size++;
+	} else {
+		resize(2 * m_max_size);
+		push(ra_nb);
+	}
 }

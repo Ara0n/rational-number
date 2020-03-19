@@ -12,12 +12,13 @@ private:
 
 public:
 	RationalList();
-	RationalList(int);
+	RationalList(const int);
 	RationalList(const RationalList&);
 	~RationalList();
 
 	void size() const;
-	void resize(int);
+	void resize(const int);
+	void push(const RationalNumber);
 };
 
 #endif
