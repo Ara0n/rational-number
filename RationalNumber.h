@@ -1,6 +1,8 @@
 #ifndef RATIONALNUMBER
 #define RATIONALNUMBER 
 
+#include <iostream>
+
 class RationalNumber
 {
 private:
