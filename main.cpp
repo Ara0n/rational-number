@@ -32,6 +32,9 @@ int main() {
 	assert(two >= another_one);
 	assert(one >= another_one);
 	assert(another_one != two);
+	cout << RationalNumber(1LL) << endl;
+	cout << RationalNumber(-2.3L) << endl;
+	assert(RationalNumber(1LL) > RationalNumber(-2.3L));
 
 	another_one++; // now equals 2
 	cout << another_one << endl;
@@ -123,6 +126,10 @@ int main() {
 
 	test.info();
 
+	test.push(two);
+	test.push(one);
+	test.sort();
+	test.info();
 
 	return EXIT_SUCCESS;
 }

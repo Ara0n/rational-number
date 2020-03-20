@@ -87,6 +87,22 @@ RationalList RationalList::unique() {
 	return ra_list;
 }
 
+void swap(RationalNumber *a, RationalNumber *b) {
+	RationalNumber temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void RationalList::sort() {
+	for (int i = 0; i < (m_current_size - 1); ++i) {
+		for (int j = 0; j < (m_current_size - i - 1); ++j) {
+			if (m_array[j] > m_array[j+1]) {
+				swap(&m_array[j], &m_array[j+1]);
+			}
+		}
+	}
+}
+
 
 bool RationalList::operator==(const RationalList& ra_list) const{
 	if (m_current_size == ra_list.m_current_size) {

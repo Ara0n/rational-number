@@ -4,6 +4,8 @@
 #include "RationalNumber.h"
 #include <iostream>
 
+void swap(RationalNumber*, RationalNumber*);
+
 class RationalList
 {
 private:
@@ -23,6 +25,7 @@ public:
 	void push(const RationalNumber);
 	RationalNumber pop();
 	RationalList unique();
+	void sort();
 
 	bool operator == (const RationalList&) const;
 	bool operator != (const RationalList&) const;
