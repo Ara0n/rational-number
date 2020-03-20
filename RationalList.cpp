@@ -29,6 +29,11 @@ void RationalList::size() const{
 	std::cout << "max size: " << m_max_size << std::endl;
 }
 
+void RationalList::info() const{
+	size();
+	std::cout << *this << std::endl;
+}
+
 void RationalList::resize(const int new_size) {
 	RationalNumber *new_array = new RationalNumber[new_size];
 	for (int i = 0; i < m_current_size; ++i) {
@@ -77,6 +82,36 @@ bool RationalList::operator==(const RationalList& ra_list) const{
 
 bool RationalList::operator!=(const RationalList& ra_list) const{
 	return !(*this == ra_list);
+}
+
+
+std::ostream& operator<<(std::ostream& output, const RationalList& ra_list) {
+	output << "[";
+	for (int i = 0; i < ra_list.m_current_size; ++i) {
+		if (i > 0) {
+			output << ", ";
+		}
+		output << ra_list[i];
+	}
+	output << "]";
+
+	return output;
+}
+
+
+std::istream& operator>>(std::istream& input, RationalList& ra_list) {
+	int length;
+	RationalNumber ra_nb;
+	ra_list.m_current_size = 0;
+	std::cout << "list length: ";
+	input >> length;
+	for (int i = 0; i < length; ++i) {
+		std::cout << "inputing rational number:" << std::endl;
+		input >> ra_nb;
+		ra_list.push(ra_nb);
+	}
+
+	return input;
 }
 
 

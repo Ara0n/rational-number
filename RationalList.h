@@ -2,6 +2,7 @@
 #define RATIONALLIST 
 
 #include "RationalNumber.h"
+#include <iostream>
 
 class RationalList
 {
@@ -17,12 +18,16 @@ public:
 	~RationalList();
 
 	void size() const;
+	void info() const;
 	void resize(const int);
 	void push(const RationalNumber);
 	RationalNumber pop();
 
 	bool operator == (const RationalList&) const;
 	bool operator != (const RationalList&) const;
+
+	friend std::ostream& operator << (std::ostream&, const RationalList&);
+	friend std::istream& operator >> (std::istream&, RationalList&);
 
 	RationalNumber& operator [] (const int);
 	const RationalNumber& operator [] (const int) const;

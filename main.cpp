@@ -95,6 +95,8 @@ int main() {
 	test3.push(another_one);
 	test3.size();
 
+	cout << test << endl << test2 << endl << test3 << endl;
+
 	assert(test == test3);
 	assert(test != test2);
 
@@ -111,8 +113,13 @@ int main() {
 	cin >> another_one;
 	cout << another_one << endl;
 	cout << setprecision(20) << another_one.float_repr() << endl;
-
 	cout << RationalNumber::get_count() << endl;
+
+	cin >> test;
+	cout << test << endl;
+
+	test.info();
+
 
 	return EXIT_SUCCESS;
 }
