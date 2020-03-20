@@ -55,6 +55,10 @@ RationalNumber::RationalNumber(long double numerator) {
 }
 
 RationalNumber::RationalNumber(long long numerator, long long denominator) {
+	if (denominator == 0) {
+		throw std::invalid_argument("can't divide by 0");
+	}
+
 	m_negative = (numerator < 0) ^ (denominator < 0);
 	m_numerator = numerator < 0 ? -numerator : numerator;
 	m_denominator = denominator < 0 ? -denominator : denominator;
@@ -64,6 +68,11 @@ RationalNumber::RationalNumber(long long numerator, long long denominator) {
 }
 
 RationalNumber::RationalNumber(long double numerator, long long denominator) {
+	if (denominator == 0) {
+		throw std::invalid_argument("can't divide by 0");
+	}
+
+	
 	m_negative = (numerator < 0) ^ (denominator < 0);
 	numerator = numerator < 0 ? -numerator : numerator;
 	m_denominator = denominator < 0 ? -denominator : denominator;
@@ -80,6 +89,11 @@ RationalNumber::RationalNumber(long double numerator, long long denominator) {
 }
 
 RationalNumber::RationalNumber(long long numerator, long double denominator) {
+	if (denominator == 0) {
+		throw std::invalid_argument("can't divide by 0");
+	}
+
+	
 	m_negative = (numerator < 0) ^ (denominator < 0);
 	m_numerator = numerator < 0 ? -numerator : numerator;
 	denominator = denominator < 0 ? -denominator : denominator;
@@ -96,6 +110,11 @@ RationalNumber::RationalNumber(long long numerator, long double denominator) {
 }
 
 RationalNumber::RationalNumber(long double numerator, long double denominator) {
+	if (denominator == 0) {
+		throw std::invalid_argument("can't divide by 0");
+	}
+
+	
 	m_negative = (numerator < 0) ^ (denominator < 0);
 	numerator = numerator < 0 ? -numerator : numerator;
 	denominator = denominator < 0 ? -denominator : denominator;
