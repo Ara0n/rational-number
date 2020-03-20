@@ -68,6 +68,26 @@ RationalNumber RationalList::pop() {
 }
 
 
+RationalList RationalList::unique() {
+	bool unique;
+	RationalList ra_list = RationalList();
+	for (int i = 0; i < m_current_size; ++i) {
+		unique = true;
+		for (int j = 0; j < ra_list.m_current_size; ++j) {
+			if (m_array[i] == ra_list[j]) {
+				unique = false;
+				break;
+			}
+		}
+		if (unique) {
+			ra_list.push(m_array[i]);
+		}
+	}
+
+	return ra_list;
+}
+
+
 bool RationalList::operator==(const RationalList& ra_list) const{
 	if (m_current_size == ra_list.m_current_size) {
 		for (int i = 0; i < m_current_size; ++i) {

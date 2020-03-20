@@ -81,7 +81,10 @@ int main() {
 	test.size();
 	test.push(one);
 	test.push(one);
-	test.size();
+
+	cout << test << endl;
+	cout << test.unique() << endl;
+
 	cout << test.pop() << endl;
 	test.size();
 
