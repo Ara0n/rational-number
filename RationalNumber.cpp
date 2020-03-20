@@ -427,11 +427,25 @@ RationalNumber RationalNumber::operator/=(const long double nb) {
 // logical comparison
 
 bool RationalNumber::operator<(const RationalNumber& rational_nb) const{
+	if (m_negative && !rational_nb.m_negative) {
+		return true;
+	}
+
+	if (!m_negative && rational_nb.m_negative) {
+		return false;
+	}
+
+	if (!m_negative && !rational_nb.m_negative) {
+		long long lcm = std::lcm(m_denominator, rational_nb.m_denominator);
+
+		return (m_numerator * (lcm/m_denominator)) < (rational_nb.m_numerator * (lcm/rational_nb.m_denominator));
+	}
+
+	//if (m_negative && rational_nb.m_negative) 
 	long long lcm = std::lcm(m_denominator, rational_nb.m_denominator);
 
-	int sign1 = (m_negative) ? -1 : 1;
-	int sign2 = (rational_nb.m_negative) ? -1 : 1;
-	return sign1*(m_numerator * (lcm/m_denominator)) < sign2*(rational_nb.m_numerator * (lcm/rational_nb.m_denominator));
+	return (m_numerator * (lcm/m_denominator)) > (rational_nb.m_numerator * (lcm/rational_nb.m_denominator));
+	
 }
 
 bool RationalNumber::operator>(const RationalNumber& rational_nb) const{
